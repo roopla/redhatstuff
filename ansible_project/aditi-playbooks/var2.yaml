@@ -1,0 +1,13 @@
+---
+
+- name: This is for variables
+  hosts: acloudguruservers
+  vars:
+    - package_name: httpd
+  tasks:
+    - name: install {{ package_name }}
+      ansible.builtin.dnf:
+        name: "{{ package_name }}"
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"
+

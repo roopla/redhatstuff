@@ -1,0 +1,8 @@
+---
+- name: Run hello_world custom module on localhost
+  hosts: localhost
+  tasks:
+    - name: Run hello_world custom module
+      hello_world:
+        name: "Akhil"
+

@@ -1,0 +1,14 @@
+---
+- name: variable stuff
+  hosts: GCPVMS
+  vars: 
+    my_var: alpoor      
+  tasks:
+    - name: I am using {{ my_var }}
+      ansible.builtin.user:
+        name: "{{ my_var }}"
+        state: present
+
+...
+
+      

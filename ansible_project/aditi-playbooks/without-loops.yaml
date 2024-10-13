@@ -1,0 +1,12 @@
+---
+- name: Loops stuff
+  hosts: acloudguruservers
+  vars:
+    packages: [git,unzip,tree,telnet]
+  tasks: 
+    - name: Installing multiple packages
+      ansible.builtin.dnf:
+        name: "{{ packages }}"
+        state: present
+
+

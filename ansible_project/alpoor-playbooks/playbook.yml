@@ -1,0 +1,8 @@
+---
+- name: Run Ping
+  hosts: all
+  tasks:
+    - name: Run Ping
+      ping:
+        data: "Akhil"
+

@@ -1,0 +1,16 @@
+---
+- name: variable stuff
+  hosts: GCPVMS
+  tasks:
+    - name: I am using {{ my_var }}
+      ansible.builtin.user:
+        name: "{{ my_var }}"
+        state: present
+      register: user_info
+
+    - name: Display the value
+      ansible.builtin.debug:
+        var: user_info
+...
+
+      

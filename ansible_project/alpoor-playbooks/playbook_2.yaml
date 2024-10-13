@@ -1,0 +1,13 @@
+---
+- name: Run hello_world custom module on localhost
+  hosts: all
+  tasks:
+    - name: Run hello_world custom module
+      hello_world:
+        name: "Akhil"
+      register: result
+
+    - name: Display the message
+      debug:
+        msg: "{{ result.message }}"
+

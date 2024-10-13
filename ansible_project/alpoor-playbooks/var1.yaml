@@ -1,0 +1,14 @@
+---
+- name: variable stuff
+  hosts: GCPVMS
+  vars: 
+    packages: [vsftpd,telnet]
+  tasks:
+    - name: varibles
+      ansible.builtin.dnf:
+        name: "{{ packages }}"
+        state: present
+
+...
+
+      

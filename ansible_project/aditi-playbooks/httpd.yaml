@@ -1,0 +1,20 @@
+---
+
+- name: This is for variables
+  hosts: centos
+  vars:
+    - package_name: httpd
+  tasks:
+    - name: install {{ package_name }}
+      ansible.builtin.dnf:
+        name: "{{ package_name }}"
+        state: present
+
+    - name: start the service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+    - name: copy my index file
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/index.html

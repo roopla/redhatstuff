@@ -1,0 +1,20 @@
+---
+
+- name: This is for variables
+  hosts: acloudguruservers
+  vars:
+    package_redhat: httpd
+    package_debian: apache2
+    my_state: present
+  tasks:
+    - name:  This is doing {{ my_state }} to package {{ package_redhat }} Red Hat-based systems 
+      ansible.builtin.dnf:
+        name: "{{ package_redhat }}"
+        state: "{{ my_state }}"
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name:  This is doing {{ my_state }} to package {{ package_debian }} Debian-based systems 
+      ansible.builtin.apt:
+        name: "{{ package_debian }}"
+        state: "{{ my_state }}"
+      when: ansible_facts['os_family'] == "Debian"

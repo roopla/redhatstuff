@@ -1,0 +1,15 @@
+---
+- name: Group Vars stuff
+  hosts: "{{ server_group }}"
+  tasks:
+    - name: Install Java version "{{ javaversion }}"
+      ansible.builtin.dnf:
+        name: "{{ javaversion }}"
+        state: "{{ my_state }}"
+        autoremove: true
+      register: version_output
+
+    - name: Display Output
+      ansible.builtin.debug:
+        var: version_output
+

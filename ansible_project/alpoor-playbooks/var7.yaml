@@ -1,0 +1,12 @@
+---
+- name: variable stuff
+  hosts: acloudguruservers
+  tasks:
+    - name: I am using {{ my_var }}
+      ansible.builtin.user:
+        name: "{{ my_var }}"
+        state: present
+
+...
+
+      
